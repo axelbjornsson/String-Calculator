@@ -30,4 +30,13 @@ public class CalculatorTest {
 	public void testMultipleNumbers2() {
 		assertEquals(15, Calculator.add("5,4,3,2,1"));
 	}
+	@Test
+	public void testLineSplits() {
+		assertEquals(6, Calculator.add("1\n2,3"));
+	}
+	@Test
+	public void testLineSplits2() {
+		assertEquals(6, Calculator.add("1\n2\n3"));
+	}
+
 }
