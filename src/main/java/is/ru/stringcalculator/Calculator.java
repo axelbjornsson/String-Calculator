@@ -5,9 +5,28 @@ public class Calculator {
 	public static int add(String text){
 		if(text.equals(""))
 			return 0;
-		return sum(splitNumbers(text));
+		
+		String[] numbers = splitNumbers(text);
+		checkNegatives(numbers);
+		
+		return sum(numbers);
 	} 
 
+	private static void checkNegatives(String[] numbers) {
+		String negatives = "";
+		for(String s : numbers) {
+			if(toInt(s) < 0) {
+				if(negatives == "")
+					negatives = s;
+				else
+					negatives += "," + s;
+			}
+		}
+	
+		if(negatives != "")
+			throw new IllegalArgumentException("Negatives not allowed: " + negatives);		
+	}
+	
 	private static int toInt(String number){
 		return Integer.parseInt(number);
 	}
