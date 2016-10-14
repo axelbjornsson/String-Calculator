@@ -51,4 +51,10 @@ public class CalculatorTest {
 	public void testIgnoreOver1000(){
 		assertEquals(5, Calculator.add("1001,2,3"));
 	}
+	@Test
+	public void testManualDelimiter(){
+		assertEquals(6, Calculator.add("//;\n1;2;3"));
+		
+	}
+	
 }

@@ -32,6 +32,12 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
+
+		if(numbers.startsWith("//")) {
+			String delimiter = numbers.charAt(2) + "|,|\n";
+			return numbers.substring(4).split(delimiter);
+		}
+		
 		return numbers.split(",|\n");
 	}
      
